@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML + CSS Cheat Sheet 2025 – Lâm</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      background: #0f0f15;
+      color: #e0e0ff;
+    }
+    h1, h2, h3 { color: #a5b4fc; }
+    h1 { border-bottom: 3px solid #6366f1; padding-bottom: 8px; }
+    code, pre { background: #1e1e38; padding: 2px 6px; border-radius: 5px; font-family: 'Consolas', monospace; }
+    pre { padding: 14px; overflow-x: auto; }
+    .tag { color: #f472b6; }
+    .attr { color: #7dd3fc; }
+    .value { color: #86efac; }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1.2em 0;
+    }
+    th, td {
+      border: 1px solid #334155;
+      padding: 10px;
+      text-align: left;
+    }
+    th { background: #1e293b; }
+    .section { margin: 2.5rem 0; }
+  </style>
+</head>
+<body>
+
+<h1>HTML + CSS Cheat Sheet (cập nhật 2025)</h1>
+
+<div class="section">
+<h2>1. Cấu trúc HTML cơ bản</h2>
+<pre><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang="vi"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">charset="UTF-8"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">name="viewport"</span> <span class="attr">content="width=device-width, initial-scale=1.0"</span><span class="tag">/&gt;</span>
+  <span class="tag">&lt;title&gt;</span>Trang của tôi<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel="stylesheet"</span> <span class="attr">href="style.css"</span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+
+  <span class="tag">&lt;header&gt;</span>…<span class="tag">&lt;/header&gt;</span>
+  <span class="tag">&lt;main&gt;</span>…<span class="tag">&lt;/main&gt;</span>
+  <span class="tag">&lt;footer&gt;</span>…<span class="tag">&lt;/footer&gt;</span>
+
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+
+<div class="section">
+<h2>2. Các thẻ HTML quan trọng nhất (semantic)</h2>
+<table>
+  <tr><th>Thẻ</th><th>Mục đích</th><th>Ví dụ</th></tr>
+  <tr><td><code>&lt;header&gt;</code></td><td>Phần đầu trang / section header</td><td>logo + nav</td></tr>
+  <tr><td><code>&lt;nav&gt;</code></td><td>Menu điều hướng</td><td>navbar</td></tr>
+  <tr><td><code>&lt;main&gt;</code></td><td>Nội dung chính (chỉ dùng 1 lần)</td><td>—</td></tr>
+  <tr><td><code>&lt;section&gt;</code></td><td>Khối nội dung có chủ đề</td><td>—</td></tr>
+  <tr><td><code>&lt;article&gt;</code></td><td>Bài viết độc lập</td><td>blog post, card sản phẩm</td></tr>
+  <tr><td><code>&lt;aside&gt;</code></td><td>Nội dung phụ (sidebar, quảng cáo)</td><td>—</td></tr>
+  <tr><td><code>&lt;footer&gt;</code></td><td>Chân trang</td><td>copyright, liên hệ</td></tr>
+  <tr><td><code>&lt;figure&gt;</code> + <code>&lt;figcaption&gt;</code></td><td>Ảnh + chú thích</td><td>—</td></tr>
+</table>
+</div>
+
+
+<div class="section">
+<h2>3. CSS Cơ bản – Cách viết & Quy tắc</h2>
+<pre><code><span class="comment">/* 1. Selector cơ bản */</span>
+p { color: navy; }
+.btn-primary { ... }
+#sidebar { ... }
+
+<span class="comment">/* 2. Combinators */</span>
+article p          <span class="comment">/* descendant */</span>
+nav > ul           <span class="comment">/* child */</span>
+h2 + p             <span class="comment">/* adjacent sibling */</span>
+li ~ li            <span class="comment">/* general sibling */</span>
+
+<span class="comment">/* 3. Pseudo-classes phổ biến */</span>
+a:hover, a:focus
+button:active
+input:focus
+li:nth-child(odd)
+tr:nth-of-type(2n+1)
+
+<span class="comment">/* 4. Pseudo-elements */</span>
+p::first-line
+h1::before { content: "★ "; }
+::marker { color: coral; }
+</code></pre>
+</div>
+
+
+<div class="section">
+<h2>4. Flexbox – Cheat Sheet nhanh</h2>
+<pre><code>.container {
+  <span class="attr">display</span>: flex;
+  <span class="attr">flex-direction</span>: row | column | row-reverse;
+  <span class="attr">flex-wrap</span>: nowrap | wrap | wrap-reverse;
+  <span class="attr">justify-content</span>: flex-start | center | space-between | space-evenly;
+  <span class="attr">align-items</span>: stretch | center | flex-start | baseline;
+  <span class="attr">gap</span>: 1.5rem;               <span class="comment">/* row + column gap */</span>
+  <span class="attr">row-gap</span>: 20px;
+  <span class="attr">column-gap</span>: 40px;
+}
+
+.item {
+  <span class="attr">flex</span>: 1 1 300px;          <span class="comment">/* grow shrink basis */</span>
+  <span class="attr">align-self</span>: center;
+  <span class="attr">order</span>: -1;
+}
+</code></pre>
+</div>
+
+
+<div class="section">
+<h2>5. CSS Grid – Cheat Sheet nhanh</h2>
+<pre><code>.grid-container {
+  <span class="attr">display</span>: grid;
+  <span class="attr">grid-template-columns</span>: 1fr 2fr 1fr;
+  <span class="attr">grid-template-rows</span>: auto 1fr auto;
+  <span class="attr">grid-template-areas</span>:
+    "header header header"
+    "sidebar main   ads   "
+    "footer footer footer";
+  <span class="attr">gap</span>: 1.5rem;
+}
+
+.item-header    { <span class="attr">grid-area</span>: header; }
+.card-featured  { <span class="attr">grid-column</span>: span 2; }
+.hero           { <span class="attr">grid-column</span>: 1 / -1; }
+</code></pre>
+</div>
+
+
+<div class="section">
+<h2>6. Các đơn vị phổ biến 2025</h2>
+<table>
+  <tr><th>Đơn vị</th><th>Dùng khi nào</th><th>Ghi chú</th></tr>
+  <tr><td>rem</td><td>font-size, margin, padding</td><td>tính theo root → nhất quán</td></tr>
+  <tr><td>em</td><td>padding, margin trong component</td><td>tính theo parent</td></tr>
+  <tr><td>vw / vh</td><td>hero section, full-screen</td><td>1vw = 1% chiều rộng màn hình</td></tr>
+  <tr><td>clamp()</td><td>font-size responsive</td><td>clamp(1rem, 4vw, 2.5rem)</td></tr>
+  <tr><td>lch()</td><td>màu sắc hiện đại</td><td>lch(70% 80 180) → rất đều</td></tr>
+</table>
+</div>
+
+
+<div class="section">
+<h2>7. Modern CSS hay dùng 2025</h2>
+<pre><code><span class="comment">/* Màu tương đối */</span>
+background: oklch(from var(--primary) l c h / 0.15);
+
+<span class="comment">/* Container queries */</span>
+@container (min-width: 500px) {
+  .card { flex-direction: row; }
+}
+
+<span class="comment">/* Scroll snap */</span>
+.scroll-container {
+  scroll-snap-type: x mandatory;
+}
+.item { scroll-snap-align: center; }
+
+<span class="comment">/* Text wrap pretty */</span>
+text-wrap: pretty;          <span class="comment">/* hoặc balance */</span>
+
+<span class="comment">/* Truncate đa dòng */</span>
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+overflow: hidden;
+</code></pre>
+</div>
+
+
+<div class="section">
+<h2>8. Responsive Design – Media Queries hiện đại</h2>
+<pre><code>@media (width &lt;= 480px)  { ... }   <span class="comment">/* mobile */</span>
+@media (width &lt;= 768px)  { ... }   <span class="comment">/* tablet */</span>
+@media (width &gt;= 1024px) { ... }   <span class="comment">/* desktop */</span>
+
+<span class="comment">/* Cách viết gọn & phổ biến 2025 */</span>
+@container style(--theme: dark) { ... }
+
+@supports (gap: 1rem) and (aspect-ratio: 16/9) {
+  /* code cho trình duyệt hỗ trợ */
+}
+</code></pre>
+</div>
+
+<hr>
+
+<p style="text-align:center; color:#94a3b8; margin-top:3rem;">
+  Copy → lưu thành <code>html-css-cheatsheet.html</code> và mở bằng trình duyệt để xem đẹp hơn.<br>
+  Chúc bạn học tốt và code vui! 🚀
+</p>
+
+</body>
+</html>
